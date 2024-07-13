@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume List</title>
+</head>
+<body>
+    <h1>Resume List</h1>
+    <ul>
+        {% for resume in resumes %}
+        <li>
+            <p>{{ resume.content|truncatewords:20 }}</p>
+            <a href="{% url 'resume_pdf' resume.id %}">Download PDF</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'resume_form' %}">Create a new resume</a>
+</body>
+</html>
